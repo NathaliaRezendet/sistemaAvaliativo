@@ -27,3 +27,13 @@ Campos :
     - observação
     - Horário de Início
     - Horário de Encerramento
+
+CORREÇÕES:
+
+- nota_total
+- id_tecnico
+
+não está salvando no banco de dados
+IMPLEMENTAÇÕES:
+
+- Possibilidade dos supervisores conseguirem mudar sua senha e cadastras outros usuários.
