@@ -20,7 +20,7 @@ if(isset($_POST['nome_supervisor']) && isset($_POST['senha'])){
     $senha = $conn->quote($senha);
 
     # Consultar o banco de dados
-    $query = "SELECT id_supervisor FROM tblusuario WHERE nome_supervisor=$usuario AND senha=$senha";
+    $query = "SELECT id_supervisor FROM tbl_usuario WHERE nome_supervisor=$usuario AND senha=$senha";
 
     try {
         $result = $conn->query($query);

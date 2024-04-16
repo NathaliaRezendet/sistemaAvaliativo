@@ -16,23 +16,23 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
 <?php 
    include("menu.php"); 
-?>
-    <div class="container">
-    <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading text-center">Entenda a Avaliação</h4>
-  <p>#CONCEITO: Neste item avaliar se técnico estava com a
-        apresentação pessoal adequada, trajando o uniforme padrão, com
-        crachá e calçando sapato adequado (Não é permitido chinelo, ténis
-        ou qualquer outro calçado, que não atenda as normas de segurança). <hr>
-  
-</div>
-<a href="../../SistemaAvaliativo/lista_tecnico.php">
-  <button type="submit" class="btn btn-warning" id="btVoltar">VOLTAR</button>
-  </a>
-</div>
-    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+?> 
+
+        <h4 class="alert-heading text-center">Entenda a Avaliação</h4>
+          <p>#CONCEITO: Neste item avaliar se técnico estava com a
+                apresentação pessoal adequada, trajando o uniforme padrão, com
+              crachá e calçando sapato adequado (Não é permitido chinelo, ténis
+              ou qualquer outro calçado, que não atenda as normas de segurança). 
+          </p>  
+
+      <a href="../lista_tecnico_.php">
+          <button type="submit" class="btn btn-warning" id="btVoltar">VOLTAR</button>
+      </a>
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 <script>
   $(function () {

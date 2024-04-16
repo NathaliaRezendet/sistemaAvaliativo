@@ -1,0 +1,29 @@
+Técnicos
+
+1	Renan
+2	Luciel
+3	Josiel
+4	Victor
+5	Leandro
+6	Leonardo
+7	Rodrigo
+8	Andeilson
+
+Usuários:
+    - Jordan
+    - Vinicius
+    - Diego
+    - Lucas
+
+Campos :
+    - ticket 5 dígitos
+    - Assunto(SELECT) : 
+       --> flap
+       --> oscilação
+       --> câmera
+       --> suporte
+    - id do cliente
+    - nome do cliente
+    - observação
+    - Horário de Início
+    - Horário de Encerramento

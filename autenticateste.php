@@ -12,7 +12,7 @@ if(isset($_POST['id_tecnico']) && isset($_POST['item']) && isset($_POST['nota'])
     $nota = $conn->quote($nota);
 
     # Inserir os dados no banco
-    $query = "INSERT INTO tblavaliacao (id_tecnico, item, nota) 
+    $query = "INSERT INTO tbl_avaliacao (id_tecnico, item, nota) 
               VALUES ($id_tecnico, $item, $nota)";
     
     try {

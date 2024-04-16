@@ -1,7 +1,7 @@
 <?php 
 include ("conn.php");
 
-$query = $conn->prepare("SELECT id_tecnico, nome_tecnico FROM tbltecnicos ORDER BY nome_tecnico ASC");
+$query = $conn->prepare("SELECT id_tecnico, nome_tecnico, imagem FROM tbl_tecnicos ORDER BY nome_tecnico ASC");
 $query->execute();
 $tecnicos = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -32,60 +32,41 @@ $tecnicos = $query->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <!-- NAV BAR-->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="lista_tecnico_.php">
-            <img src="img/312860882_567125738551129_7490135894950538800_n.png" id="imgplayfibraNav" class="d-inline-block align-top">
+        <a class="navbar-brand">
+            <img src="https://i.ibb.co/7tjLckq/Logo1.png" id="imgplayfibraNav" class="d-inline-block align-top">
             PLAYFIBRA
         </a>
 
-    <form id="selecionaTecnicoForm" class="ml-auto">
-      <div class="form-group d-flex">
-        <select name="id_tecnico" id="id_tecnico" class="form-control" onchange="redirecionarAvaliacao(); salvarSelecaoAtual()">
-            <option value="">Selecione o técnico</option>
-                <?php foreach ($tecnicos as $tecnico) : ?>
-                  <option value="<?php echo $tecnico['id_tecnico']; ?>"><?php echo $tecnico['nome_tecnico']; ?></option>
-                <?php endforeach; ?>
-            </select>
-
-            <!-- BOTÃO DE SAIR -->
-            <input type="submit" value="IR" class="btn btn-primary ml-2">
-            <span style="margin-right: 10px;">&nbsp;</span>
-
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-                Sair
-            </button>
-      </div>  
-  </form>
-
-<script>
-    function redirecionarAvaliacao() {
-        var idTecnico = document.getElementById('id_tecnico').value;
-        window.location.href = 'avaliacao_tecnico_' + idTecnico + '.php';
-    }
-</script>
- </div>    
-</form>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+            Fazer logout
+        </button>
 
          <!--modal para  questionar saída -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Tem certeza que deseja sair?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Tem certeza que deseja sair?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Ao sair, você será desconectado do sistema.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <a href="index.php" class="btn btn-warning">Sair</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        Ao sair, você será desconectado do sistema.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <a href="logout.php" class="btn btn-warning">Sair</a>
-      </div>
-    </div>
-  </div>
-</div>
-</nav>
+  </nav>
+            <!-- BOTÃO DE SAIR -->
+            <!-- <input type="submit" value="IR" class="btn btn-primary ml-2"> -->
+            <span style="margin-right: 10px;">&nbsp;</span>
+      </div>  
+    </form>
 <script>
     // Função para carregar a última seleção do dropdown
     function carregarUltimaSelecao() {

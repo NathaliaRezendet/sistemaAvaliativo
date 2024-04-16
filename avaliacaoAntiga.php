@@ -25,7 +25,7 @@
 ?>
 
                               <!-- IMAGEM -->
-<img src="img/312860882_567125738551129_7490135894950538800_n.png" id="imgplayfibra">
+<img src="https://i.ibb.co/QQ5h6B6/download.png" id="imgplayfibra">
 <h2 id="tituloPlay">FORMULÁRIO DE AVALIAÇÃO TÉCNICA</h2>
 <h2 id="tituloPlay"></h2>
 

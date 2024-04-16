@@ -1,0 +1,169 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+/* Estilo para a seção */
+.section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  padding: 0 35px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to left top, #ff6801, #e75e03);
+}
+
+/* Estilo para o wrapper */
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Estilo para os ícones de navegação */
+.wrapper i {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+/* Efeito de clique nos ícones de navegação */
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.85);
+}
+
+/* Estilo para o ícone de navegação à esquerda */
+.wrapper i:first-child {
+  left: -22px;
+}
+
+/* Estilo para o ícone de navegação à direita */
+.wrapper i:last-child {
+  right: -22px;
+}
+
+/* Estilo para o carrossel */
+.wrapper .carousel {
+  display: flex; /* Alterado para flex */
+  overflow-x: scroll; /* Adicionado overflow-x */
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+}
+
+.card {
+  display: flex ;
+}
+
+/* Estilo para os cartões no carrossel */
+.carousel .card {
+  flex: 0 0 calc(100% - 32px); /* Tamanho dos cartões */
+  max-width: calc(100% - 32px); /* Tamanho máximo dos cartões */
+  list-style: none;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  height: 300px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* Estilo para o corpo do cartão */
+.carousel .card-body {
+  padding: 20px; /* Espaçamento interno */
+}
+
+/* Estilo para o rodapé do cartão */
+.carousel .card-footer {
+  display: flex;
+  justify-content: flex-end; /* Botão à direita */
+  padding: 20px; /* Espaçamento interno */
+}
+
+/* Estilo para o botão "Próximo" */
+.carousel .btn-next {
+  margin-left: auto; /* Alinha o botão à direita */
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    flex-wrap: nowrap; /* Evita quebrar linha */
+  }
+
+  .carousel .card {
+    flex: 0 0 calc(100% - 16px); /* Ajusta tamanho dos cartões para telas menores */
+    max-width: calc(100% - 16px); /* Ajusta tamanho máximo dos cartões para telas menores */
+  }
+
+  input[type="number"] {
+    width: 80%;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Espaçamento entre os botões e os inputs */
+}
+
+.btn-next,
+.btn-success,
+#btnAnexarImagem {
+  width: 250px;
+  height: 50px;
+  background-color: #ff6801;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .btn-next,
+  .btn-success,
+  #btnAnexarImagem {
+    width: 80%;
+  }
+}
+
+.btn-next:hover,
+.btn-success:hover,
+#btnAnexarImagem:hover {
+  background-color: #ed6104;
+}
+
+#btnAnexarImagem{
+  float: right;
+}
+
+@media screen and (max-width: 600px) {
+  #btnAnexarImagem {
+    width: 95%;
+  }
+}
+
+input[type="number"] {
+  margin-left: 45%;
+}
+
+@media screen and (max-width: 600px) {
+  input[type="number"] {
+    margin-left: 37%;
+  }  
+}
