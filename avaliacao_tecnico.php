@@ -21,9 +21,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
         $nome = $tecnico['nome_tecnico'];
     }
 } else {
-   // Se o ID não foi passado, redireciona para alguma página de erro ou tratamento
    header("Location: erro.php");
-   exit(); // Certifica-se de que o script não continua após o redirecionamento
+   exit();
 }
 
 // Processamento do formulário de avaliação
@@ -93,40 +92,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<h2 id="tituloPlay">FORMULÁRIO DE AVALIAÇÃO TÉCNICA<br><br><p id="name"><?= $nome ?></p></h2>
+<h2 id="tituloPlay">FORMULÁRIO DE AVALIAÇÃO TÉCNICA<br><br><p id="name"><?= $nome ?></p></h2> <button type="button" class="btn btn-primary mr-3" id="btnAnexarImagem" data-id="<?= $id_tecnico ?>">Anexar Imagem</button>
+
+<!-- <input style="width: 20%; text-align: center; height: 37px; border-radius: 5px; margin-left: 40%; margin-bottom: 2%;" type="text" id="nome_cliente" name="nome_cliente" placeholder="Nome do Cliente"> -->
 
 <form id="avaliacaoForm" action="insere.php" method="post">
    <input type="hidden" name="name" value="<?= $nome ?>">
+   <input type="hidden" name="id_tecnico" value="<?= $id_tecnico ?>"> 
    <div class="container">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
          <div class="carousel-inner">
             <?php
             $questoes = [
-                  "01/25 <br><br> Ferramental - A mala de ferramentas estava completa, se houve esquecimento de ferramenta, equipamentos ou sujeira na residência do cliente?",   
-                  "02/25 <br><br> Meio de transporte - Estava organizado (equipamentos no carro), veículo identificado (plotado), limpo (aparência externa e interna), abastecido e com o estepe em perfeito estado para o uso?",
-                  "03/25 <br><br> Segurança do Trabalho - Fazia uso dos EPIs (cinto de segurança paraquedista, talabarte, bota de segurança, luva de segurança, capa de chuva, óculos de segurança, capacete e EPC) cones de sinalização?",
-                  "04/25 <br><br> Deslocamento ao Cliente (Cumprir a agenda e horários passados pelo apoio a campo) - Utilizou todos os status corretamente de acordo com o processo de atendimento (Deslocamento, Inicio, Refeição, etc)",
-                  "05/25 <br><br> Deslocamento ao Cliente (Cumprir a agenda com responsabilidade e prudência) - Aplicou os princípios de direção defensiva?)",
-                  "06/25 <br><br> Entender a solicitação do cliente (Foco no Cliente) - Utilizou boas práticas de comunicação (Pediu permissão para entrar na residência, Articulação Clara, Pronúncia Correta e Empatia) e Fez as devidas Orientações de Uso da Internet e nossos Serviços?",
-                  "07/25 <br><br> Entender a solicitação do cliente (Foco no Cliente) - Confirmou o produto velocidade contratada / serviços solicitados antes da execução?",
-                  "08/25 <br><br> Entender a solicitação do cliente (Foco no Cliente) - Solicitou ajuda, se necessário do apoio a campo, sendo permitido escalonar solicitando ao supervisor, NOC ou até mesmo ao Gerente?",
-                  "09/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Executou o correto procedimento de fixação do cabeamento e ancoragem de cabos aéreos de fibra ópticos 1F realizando o processo de clivagem e limpeza ao efetuar os conectores no cabo de acordo às normas e exigências da Playfibra?",
-                  "10/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Realizando o J ou popular Pingadeira na faixada a passagem correta pelos dutos da residência do cliente ou de acordo com as exigências do cliente sem ferir as normas existentes da Playfibra Interna e Externa? ?",
-                  "11/25 <br><br> Executar os Procedimentos técnicos conforme os Padões - Realizando a acomodação do cabeamento na CTO sem excessos e devidamente identificado com ID do cliente sem efetuar nehuma desconectorização (desconexão) de cliente popular (rodízio)?",
-                  "12/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orientando e Colocando o Router (ONT/ONU) no ponto no qual o cliente mais faz utilização e de acordo com suas necessidades, informando o melhor posicionamento de acordo com a propagação certa do wi-fi (2.4Ghz e 5Ghz), orientando ao mesmo utilizar se possível suas conexões local via cabo de rede CAT5E ou CAT6E se necessário pontos adicionais na residência do cliente orientar quanto ao uso da rede Mesh (Router mesh) conectados via cabo de rede CAT5E para melhor proveito da velocidade contratadas nos pontos de propagação mesh.",
-                  "13/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orientou o cliente a efetuar suas conexões, não deve ser feito as conexões pelo cliente. Se o técnico oriento corretamente?",
-                  "14/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orienta e incentivar o cliente a utilizar os canais de auto atendimento?",
-                  "15/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Resolveu o Problema deve ser feito o teste de velocímetro utilizando o velocímetro Speedtest by Ookla e nPerf?",
-                  "16/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orientando e Colocando o Router (ONT/ONU) no ponto no qual o cliente mais faz utilização e de acordo com suas necessidades, informando o melhor posicionamento de acordo com a propagação certa do wi-fi (2.4Ghz e 5Ghz), orientando ao mesmo se possível suas conexões local via cabo de rede CAT5E ou CAT6E se necessário pontos adicionais na residência do cliente orientar quanto ao uso da rede MeshRouter mesh conectados via cabo de rede CAT5E para melhor proveito da velocidade contratadas nos pontos de propagação mesh.",
-                  "17/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orienta e incentivar o cliente a utilizar os canais de auto atendimento?",
-                  "18/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Resolveu o Problema deve ser feito o teste de velocímetro utilizando o velocímetro Speedtest by Ookla e nPerf?",
-                  "19/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Testou os produtos para checar se todos estão funcionando perfeitamente?",
-                  "20/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Testou os produtos para checar se todos estão funcionando perfeitamente em casos de instabilidade e lentidão relatados pelo cliente?",
-                  "21/25 <br><br> Encerrar atendimento (cumprir o combinado - Eficiência) - Deixando o local com a potência dentro dos parâmetros corretos obedecendo a perda de 1dbm acima do medido na CTO de atendimento do cliente. Acima de 25 dbm na CTO obrigatorio avisar no Grupo",
-                  "22/25 <br><br> Encerrar atendimento (Cumprir o combinado - Eficiência) - Deixa o local conforme os padrões de limpeza após atendimento?",
-                  "23/25 <br><br> Encerrar atendimento (Cumprir o combinado - Eficiência) - Preencheu corretamente a O.S. Fez corretamente o laudo técnico, lançou todo o material utilizado e entregou segunda via para o cliente?",
-                  "24/25 <br><br> Encerrar atendimento (Cumprir o combinado - Eficiência ) - Finaliza o atendimento e agradece ao cliente antes de deixar o local ?",
-                  "25/25 <br><br> Encerrar suas atividades (Cumprir o combinado - Eficiencia ) - Finalizar na base com a entrega dos equipamentos e OS's Deixar o local?"
+                "01/25 <br><br> Ferramental - A mala de ferramentas estava completa, se houve esquecimento de ferramenta, equipamentos ou sujeira na residência do cliente?",   
+                "02/25 <br><br> Meio de transporte - Estava organizado (equipamentos no carro), veículo identificado (plotado), limpo (aparência externa e interna), abastecido e com o estepe em perfeito estado para o uso?",
+                "03/25 <br><br> Segurança do Trabalho - Fazia uso dos EPIs (cinto de segurança paraquedista, talabarte, bota de segurança, luva de segurança, capa de chuva, óculos de segurança, capacete e EPC) cones de sinalização?",
+                "04/25 <br><br> Deslocamento ao Cliente (Cumprir a agenda e horários passados pelo apoio a campo) - Utilizou todos os status corretamente de acordo com o processo de atendimento (Deslocamento, Inicio, Refeição, etc)",
+                "05/25 <br><br> Deslocamento ao Cliente (Cumprir a agenda com responsabilidade e prudência) - Aplicou os princípios de direção defensiva?)",
+                "06/25 <br><br> Entender a solicitação do cliente (Foco no Cliente) - Utilizou boas práticas de comunicação (Pediu permissão para entrar na residência, Articulação Clara, Pronúncia Correta e Empatia) e Fez as devidas Orientações de Uso da Internet e nossos Serviços?",
+                "07/25 <br><br> Entender a solicitação do cliente (Foco no Cliente) - Confirmou o produto velocidade contratada / serviços solicitados antes da execução?",
+                "08/25 <br><br> Entender a solicitação do cliente (Foco no Cliente) - Solicitou ajuda, se necessário do apoio a campo, sendo permitido escalonar solicitando ao supervisor, NOC ou até mesmo ao Gerente?",
+                "09/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Executou o correto procedimento de fixação do cabeamento e ancoragem de cabos aéreos de fibra ópticos 1F realizando o processo de clivagem e limpeza ao efetuar os conectores no cabo de acordo às normas e exigências da Playfibra?",
+                "10/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Realizando o J ou popular Pingadeira na faixada a passagem correta pelos dutos da residência do cliente ou de acordo com as exigências do cliente sem ferir as normas existentes da Playfibra Interna e Externa? ?",
+                "11/25 <br><br> Executar os Procedimentos técnicos conforme os Padões - Realizando a acomodação do cabeamento na CTO sem excessos e devidamente identificado com ID do cliente sem efetuar nehuma desconectorização (desconexão) de cliente popular (rodízio)?",
+                "12/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orientando e Colocando o Router (ONT/ONU) no ponto no qual o cliente mais faz utilização e de acordo com suas necessidades, informando o melhor posicionamento de acordo com a propagação certa do wi-fi (2.4Ghz e 5Ghz), orientando ao mesmo utilizar se possível suas conexões local via cabo de rede CAT5E ou CAT6E se necessário pontos adicionais na residência do cliente orientar quanto ao uso da rede Mesh (Router mesh) conectados via cabo de rede CAT5E para melhor proveito da velocidade contratadas nos pontos de propagação mesh.",
+                "13/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orientou o cliente a efetuar suas conexões, não deve ser feito as conexões pelo cliente. Se o técnico oriento corretamente?",
+                "14/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orienta e incentivar o cliente a utilizar os canais de auto atendimento?",
+                "15/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Resolveu o Problema deve ser feito o teste de velocímetro utilizando o velocímetro Speedtest by Ookla e nPerf?",
+                "16/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orientando e Colocando o Router (ONT/ONU) no ponto no qual o cliente mais faz utilização e de acordo com suas necessidades, informando o melhor posicionamento de acordo com a propagação certa do wi-fi (2.4Ghz e 5Ghz), orientando ao mesmo se possível suas conexões local via cabo de rede CAT5E ou CAT6E se necessário pontos adicionais na residência do cliente orientar quanto ao uso da rede MeshRouter mesh conectados via cabo de rede CAT5E para melhor proveito da velocidade contratadas nos pontos de propagação mesh.",
+                "17/25 <br><br> Executar os Procedimentos Técnicos conforme os Padrões - Orienta e incentivar o cliente a utilizar os canais de auto atendimento?",
+                "18/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Resolveu o Problema deve ser feito o teste de velocímetro utilizando o velocímetro Speedtest by Ookla e nPerf?",
+                "19/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Testou os produtos para checar se todos estão funcionando perfeitamente?",
+                "20/25 <br><br> Testar produto (Qualidade PLAYFIBRA) - Testou os produtos para checar se todos estão funcionando perfeitamente em casos de instabilidade e lentidão relatados pelo cliente?",
+                "21/25 <br><br> Encerrar atendimento (cumprir o combinado - Eficiência) - Deixando o local com a potência dentro dos parâmetros corretos obedecendo a perda de 1dbm acima do medido na CTO de atendimento do cliente. Acima de 25 dbm na CTO obrigatorio avisar no Grupo",
+                "22/25 <br><br> Encerrar atendimento (Cumprir o combinado - Eficiência) - Deixa o local conforme os padrões de limpeza após atendimento?",
+                "23/25 <br><br> Encerrar atendimento (Cumprir o combinado - Eficiência) - Preencheu corretamente a O.S. Fez corretamente o laudo técnico, lançou todo o material utilizado e entregou segunda via para o cliente?",
+                "24/25 <br><br> Encerrar atendimento (Cumprir o combinado - Eficiência ) - Finaliza o atendimento e agradece ao cliente antes de deixar o local ?",
+                "25/25 <br><br> Encerrar suas atividades (Cumprir o combinado - Eficiencia ) - Finalizar na base com a entrega dos equipamentos e OS's Deixar o local?"
             ];
 
             foreach ($questoes as $i => $questao) :
@@ -145,9 +148,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="d-flex justify-content-center">
 
-<button type="button" class="btn btn-primary mr-3" id="btnAnexarImagem" data-id="<?= $id_tecnico ?>">Anexar Imagem</button>
          <button type="submit" class="btn btn-success" id="btnSalvar" style="width: 250px; margin-bottom: 50px; display: none;">Salvar Avaliação</button>
-         <button type="button" class="btn-next btnfos btnfos-4">Próxima pergunta</button>
+         <button type="button" class="btn-back btnfos btnfos-4">Pergunta Anterior</button>
+         <button type="button" class="btn-next btnfos btnfos-4">Próxima pergunta</button>         
       </div>
    </div>
 </form>
@@ -157,21 +160,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <script>
 $(document).ready(function() {
-   $('#btnAnexarImagem').click(function() {
-      var idTecnico = $(this).data('id');
-      window.location.href = 'anexos/lista_avaliacoes_1.php?id=' + idTecnico;
+   // Inicia o carrossel sem transição automática
+   $('.carousel').carousel({
+      interval: false
    });
 
+   // Adiciona um evento de clique aos botões de navegação
    $('.btn-next').click(function() {
+      // Avança para o próximo slide
       $('.carousel').carousel('next'); 
+
+      // Verifica se o penúltimo slide está ativo para exibir ou ocultar o botão de salvar
       if ($('.carousel-item:nth-last-child(2)').hasClass('active')) {
          $('#btnSalvar').show(); 
          $('.btn-next').hide(); 
       }
    });
-});
 
+   $('.btn-back').click(function() {
+      // Retrocede para o slide anterior
+      $('.carousel').carousel('prev');
+
+      // Oculta o botão de salvar e exibe o botão de próxima pergunta
+      $('#btnSalvar').hide();
+      $('.btn-next').show();
+   });
+});
 </script>
+
 
 </body>
 </html>

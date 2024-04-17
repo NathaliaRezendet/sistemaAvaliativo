@@ -93,7 +93,7 @@
 }
 
 /* Estilo para o botão "Próximo" */
-.carousel .btn-next {
+.carousel .btn-next, .btn-right {
   margin-left: auto; /* Alinha o botão à direita */
 }
 
@@ -119,6 +119,7 @@
 }
 
 .btn-next,
+.btn-back,
 .btn-success,
 #btnAnexarImagem {
   width: 250px;
@@ -136,6 +137,7 @@
 
 @media screen and (max-width: 600px) {
   .btn-next,
+  .btn-back,
   .btn-success,
   #btnAnexarImagem {
     width: 80%;
@@ -143,18 +145,29 @@
 }
 
 .btn-next:hover,
-.btn-success:hover,
-#btnAnexarImagem:hover {
+.btn-success:hover
+{
   background-color: #ed6104;
 }
 
 #btnAnexarImagem{
-  float: right;
+    float: right;
+    color: #ff6801;
+    background-color: white;
+    border: #ff6801 1px solid;
+    z-index: 10000;
+}
+
+#btnAnexarImagem:hover  {
+  background-color: #ed6104;
+  color: white;
 }
 
 @media screen and (max-width: 600px) {
   #btnAnexarImagem {
     width: 95%;
+    z-index: 100000;
+    position: relative;
   }
 }
 
