@@ -4,8 +4,8 @@
 
 $host = "localhost";
 $dbname = "bdplayfibra";
-$user = "devJordan";
-$pass = "102030";
+$user = "root";
+$pass = "";
 $port = 3306;
 
 //Create Connection
