@@ -92,7 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<h2 id="tituloPlay">FORMULÁRIO DE AVALIAÇÃO TÉCNICA<br><br><p id="name"><?= $nome ?></p></h2> <button type="button" class="btn btn-primary mr-3" id="btnAnexarImagem" data-id="<?= $id_tecnico ?>">Anexar Imagem</button>
+<h2 id="tituloPlay">FORMULÁRIO DE AVALIAÇÃO TÉCNICA<br><br>
+<a href="avaliacoes_imagens.php">
+   <p id="name"><?= $nome ?></p></h2> 
+      <button type="button" class="btn btn-primary mr-3" id="btnAnexarImagem" data-id="<?= $id_tecnico ?>">
+         Anexar Imagem
+      </button>
+</a>
 
 <!-- <input style="width: 20%; text-align: center; height: 37px; border-radius: 5px; margin-left: 40%; margin-bottom: 2%;" type="text" id="nome_cliente" name="nome_cliente" placeholder="Nome do Cliente"> -->
 

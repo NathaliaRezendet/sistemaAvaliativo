@@ -32,7 +32,7 @@ $tecnicos = $query->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <!-- NAV BAR-->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="./seleciona_tecnico.php">
             <img src="https://i.ibb.co/7tjLckq/Logo1.png" id="imgplayfibraNav" class="d-inline-block align-top">
             PLAYFIBRA
         </a>
